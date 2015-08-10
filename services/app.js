@@ -11,3 +11,9 @@ angular.module('app').factory('messages', function(){
 
   return messages;
 });
+
+angular.module('app').controller('ListCtrl', function(messages){
+  var self = this;
+
+  self.messages = messages.list;
+});
