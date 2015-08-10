@@ -17,3 +17,11 @@ angular.module('app').controller('ListCtrl', function(messages){
 
   self.messages = messages.list;
 });
+
+angular.module('app').controller('PostCtrl', function(messages){
+  var self = this;
+
+  self.addMessage = function(message){
+    messages.add(message);
+  };
+});
