@@ -1,4 +1,4 @@
-angular.model('app', []);
+angular.module('app', []);
 
 angular.module('app').factory('messages', function(){
   var messages = {};
@@ -21,7 +21,10 @@ angular.module('app').controller('ListCtrl', function(messages){
 angular.module('app').controller('PostCtrl', function(messages){
   var self = this;
 
+  self.newMessage = "Hello World!";
+
   self.addMessage = function(message){
     messages.add(message);
+    self.newMessage = '';
   };
 });
