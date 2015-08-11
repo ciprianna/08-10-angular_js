@@ -4,6 +4,10 @@ function FunCtrl(){
   self.start = function(){
     console.log("Fun times have been started!");
   }
+
+  self.end = function(){
+    console.log("Fun time is over");
+  }
 }
 
 angular.module('coolApp', [])
