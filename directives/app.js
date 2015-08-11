@@ -13,4 +13,13 @@ angular.module('greetings', [])
   //   restrict: "E", // Restricts this directive to elements
   //   template: "<div>Howdy there! You look splendid.</div>" // Specifies the html
   // }
+})
+
+.directive("goodbye", function(){
+  return {
+    restrict: "A",
+    link: function(){
+      alert("See ya later!");
+    }
+  }
 });
