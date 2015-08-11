@@ -24,4 +24,31 @@ angular.module('greetings', [])
       });
     }
   }
+})
+
+.directive("hello", function(){
+  return {
+    require: "welcome",
+    link: function(scope, element, attrs, welcomeCtrl){
+      welcomeCtrl.sayHello();
+    }
+  };
+})
+
+.directive("howdy", function(){
+  return {
+    require: "welcome",
+    link: function(scope, element, attrs, welcomeCtrl){
+      welcomeCtrl.sayHowdy();
+    }
+  };
+})
+
+.directive("hi", function(){
+  return{
+    require: "welcome",
+    link: function(scope, element, attrs, welcomeCtrl){
+      welcomeCtrl.sayHi();
+    }
+  };
 });
