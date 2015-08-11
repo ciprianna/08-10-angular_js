@@ -1,7 +1,8 @@
 angular.module('greetings', [])
 .directive("welcome", function(){ // First param is name, second is function
   return {
-    restrict: "A", // Restricts to attributes
+    restrict: "A", // Restricts to attributes; could use "C" for classes, or "M"
+                    // for comments; make the corresponding html match
     link: function(){
       alert("Howdy!");
     }
