@@ -35,4 +35,7 @@ angular.module('app', [])
     }, function(error){ // Sends an error to the console log if promise rejects
       console.error(error)
     })
+    .finally(function(){ // Runs regardless of promise outcome
+      console.log('Finished at: ', new Date())
+    })
 })
