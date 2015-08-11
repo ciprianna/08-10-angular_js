@@ -11,7 +11,9 @@ angular.module('coolApp', [])
 .directive("entering", function(){
   return function(scope, element, attrs){
     element.bind("mouseenter", function(){
-      scope.fun.start();
+      scope.$apply(attrs.entering); // $apply can parse and locate the method
+        // from the scope, rather than passing it directly and assuming the
+        // scope is known
     })
   }
 });
