@@ -1,16 +1,23 @@
 function getData($timeout, $q){
   return function(){
 
-    // alternative method using $q to return the promise
     return $q(function(resolve, reject){
       $timeout(function(){
-        if(Math.round(Math.random())){
-          resolve('Data received!')
-        } else {
-          reject('Oh noes!')
-        }
+        resolve(Math.floor(Math.random() * 10)) // prints random int (0-9)
       }, 2000)
     })
+    ////////////////////////////////////////////////////////////////////////////
+    // // alternative method using $q to return the promise
+    // return $q(function(resolve, reject){
+    //   $timeout(function(){
+    //     if(Math.round(Math.random())){
+    //       resolve('Data received!')
+    //     } else {
+    //       reject('Oh noes!')
+    //     }
+    //   }, 2000)
+    // })
+    ////////////////////////////////////////////////////////////////////////////
     // var defer = $q.defer()
     //
     // // simulated asynch function
@@ -30,12 +37,20 @@ angular.module('app', [])
 .factory('getData', getData)
 .run(function(getData){
   var promise = getData()
-    .then(function(string){
-      console.log(string)
-    }, function(error){ // Sends an error to the console log if promise rejects
-      console.error(error)
+    .then(function(num){
+      console.log(num) // prints the original random number
+      return num * 2 // doubles the random number
     })
-    .finally(function(){ // Runs regardless of promise outcome
-      console.log('Finished at: ', new Date())
+    .then(function(num){
+      console.log(num) // = random number * 2, this is what prints to the log
     })
+    ////////////////////////////////////////////////////////////////////////////
+    // .then(function(string){
+    //   console.log(string)
+    // }, function(error){ // Sends an error to the console log if promise rejects
+    //   console.error(error)
+    // })
+    // .finally(function(){ // Runs regardless of promise outcome
+    //   console.log('Finished at: ', new Date())
+    // })
 })
