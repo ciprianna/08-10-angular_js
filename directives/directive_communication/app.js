@@ -16,7 +16,7 @@ angular.module('greetings', [])
       this.sayHi = function(){
         $scope.words.push("Hi");
       }
-    };
+    },
 
     link: function(scope, element){
       element.bind("mouseenter", function(){
