@@ -7,9 +7,11 @@ app.controller("AppCtrl", function($scope){
 app.directive("drink", function(){
   return {
     scope: {
-      flavor: '@' // Replaces the link function below (assigning attr from div
-    },            // to the div content
-    template: '<div>{{ flavor }}</div>',
+      flavor: '=' // Expects an Object to bind to
+      // flavor: '@' // Replaces the link function below (assigning attr from div
+      //             // to the div content; expects a String
+    },
+    template: '<input type="text" ng-model="flavor">',
     // link: function(scope, element, attrs){
     //   scope.flavor = attrs.flavor;
     // }
