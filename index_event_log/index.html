@@ -5,8 +5,11 @@
   </head>
   <body>
     <div ng-app="app">
-      <div ng-repeat="item in 'somewords'.split('') track by $index">
+      <div class="button" ng-repeat="item in 'somewords'.split('') track by $index" ng-click="$log.debug($event)">
+        <!-- Literally like an index 0..i -->
         {{$index + 1}}. {{item}}
+        <!-- Tracks an event, here the click of the postion of x on the page -->
+        {{ev.pageX}}
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.0/angular.min.js"></script>
