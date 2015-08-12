@@ -11,7 +11,7 @@ angular.module('app', [])
   return {
     restrict: "E",
     transclude: true,
-    template: "<h2>Hello, world!</h2> <div role='tabPanel' ng-transclude></div>", // to be inserted into document at directive location
+    template: "<div role='tabPanel' ng-show='active' ng-transclude></div>", // to be inserted into document at directive location
     require: '^tabset', // Instructs to look up the hierarchy to find the
                         // controller for tabset
     scope: {
@@ -19,6 +19,7 @@ angular.module('app', [])
       // the @ sign is Angular-specific says property should be a String
     },
     link: function(scope, elem, attr, tabsetCtrl){ // can add in tabsetCtrl now
+      scope.active = false // Sets all tabs to default of false; inactive
       tabsetCtrl.addTab(scope)
     }
   }
@@ -41,6 +42,10 @@ angular.module('app', [])
 
       self.addTab = function addTab(tab){
         self.tabs.push(tab)
+
+        if(self.tabs.length === 1){ // Sets the first tab to active
+          tab.active = true
+        }
       }
     }
   }
