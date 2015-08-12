@@ -14,7 +14,10 @@ angular.module('app', [])
     template: "<h2>Hello, world!</h2> <div role='tabPanel' ng-transclude></div>", // to be inserted into document at directive location
     require: '^tabset', // Instructs to look up the hierarchy to find the
                         // controller for tabset
-    scope: { },
+    scope: {
+      heading: '@' // Specifies a property that can be passed to the link
+      // the @ sign is Angular-specific says property should be a String
+    },
     link: function(scope, elem, attr, tabsetCtrl){ // can add in tabsetCtrl now
       tabsetCtrl.addTab(scope)
     }
