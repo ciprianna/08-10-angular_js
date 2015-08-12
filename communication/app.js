@@ -29,5 +29,6 @@ app.directive("city", function(){
     link: function(scope, element, attrs, ctrls){
       ctrls[0].makeAnnouncement("This city rocks"); // Found country, so can
       ctrls[1].makeLaw("Jump higher");           // use makeAnnouncement method
+    }
   };
 });
