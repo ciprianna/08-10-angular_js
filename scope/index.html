@@ -9,8 +9,9 @@
   <body>
     <div ng-app="drinkApp">
       <div ng-controller="AppCtrl">
-        <div drink flavor="strawberry">
-          
+        <input type="text" ng-model="ctrlFlavor">
+        <div drink flavor="{{ctrlFlavor}}">
+
         </div>
       </div>
     </div>
