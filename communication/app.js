@@ -13,16 +13,21 @@ app.directive("country", function(){
 
 app.directive("state", function(){
   return {
-    restrict: "E"
+    restrict: "E",
+    controller: function(){
+      this.makeLaw = function(law){
+        console.log("Law: " + law);
+      };
+    }
   };
 });
 
 app.directive("city", function(){
   return {
     restrict: "E",
-    require: "^country", // Look to parents for country directive
-    link: function(scope, element, attrs, countryCtrl){
-      countryCtrl.makeAnnouncement("This city rocks"); // Found country, so can
-    }                                           // use makeAnnouncement method
+    require: ["^country", "^state"], // Look to parents for directives
+    link: function(scope, element, attrs, ctrls){
+      ctrls[0].makeAnnouncement("This city rocks"); // Found country, so can
+      ctrls[1].makeLaw("Jump higher");           // use makeAnnouncement method
   };
 });
