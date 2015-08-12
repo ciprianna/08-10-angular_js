@@ -1,7 +1,7 @@
 var app = angular.module("app", [])
 
-app.directive("clock", function(){
-  return {
+app.directive("clock", function(){ // Component - uncomplicated, passes an
+  return {                         // attribute directly to an element
     restrict: "E",
     scope: {
       timezone: "@"
@@ -10,9 +10,9 @@ app.directive("clock", function(){
   };
 });
 
-app.directive("panel", function(){
-  return {
-    restrict: "E",
+app.directive("panel", function(){ // Container - inserts content into a
+  return {                         // component; allows for multiple elements
+    restrict: "E",                // named the same thing ('panel')
     transclude: true,
     scope: {
       title: '@'
