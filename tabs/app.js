@@ -16,7 +16,7 @@ angular.module('app', [])
                         // controller for tabset
     scope: { },
     link: function(scope, elem, attr, tabsetCtrl){ // can add in tabsetCtrl now
-
+      tabsetCtrl.addTab(scope)
     }
   }
 })
@@ -35,6 +35,10 @@ angular.module('app', [])
     controller: function(){ // Creates the Angular controller to use
       var self = this
       self.tabs = []
+
+      self.addTab = function addTab(tab){
+        self.tabs.push(tab)
+      }
     }
   }
 })
