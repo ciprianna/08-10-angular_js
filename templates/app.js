@@ -1,4 +1,4 @@
-(function(){
+
 
   function TestCtrl($templateCache) {
     this.user = {name: 'Blake'};
@@ -20,4 +20,6 @@
   })
   .controller('TestCtrl', TestCtrl);
 
-})()
+angular.module('app').run(function ($templateCache){
+  $templateCache.put('test.html', 'Hello {{ test.user.name }}!');
+});
