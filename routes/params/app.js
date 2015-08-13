@@ -2,7 +2,7 @@ var app = angular.module("myApp", ['ngRoute']); // Dependent on ngRoute
 
 // Single page route configuration
 app.config(function($routeProvider){
-  $routeProvider.when("/:message",
+  $routeProvider.when("/:firstName/:middleName/:lastName",
     {
       templateUrl: "app.html",
       controller: "AppCtrl",
@@ -11,7 +11,7 @@ app.config(function($routeProvider){
   );
 });
 
-app.controller("AppCtrl", function(){
+app.controller("AppCtrl", function($routeParams){
   var self = this;
-  self.message = "The app route is working!";
+  self.message = $routeParams.firstName + " " + $routeParams.middleName + " " + $routeParams.lastName;
 });
