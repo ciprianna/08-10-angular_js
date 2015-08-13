@@ -12,7 +12,9 @@
       controller: 'TestCtrl as test',
       templateUrl: 'test.html'
       // template: 'Hello {{ test.user.name }}!' // Directly passes the String;
-      // not recommended to pass this way
+      // not recommended to pass this way in prod, good for dev though
+      // Fine to serve on localhost because loading external templates won't
+      // take terribly long, but on prod, it could slow down the site
     })
     .otherwise('/');
   })
