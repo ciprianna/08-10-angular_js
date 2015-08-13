@@ -9,14 +9,18 @@ app.config(function($routeProvider){
       controllerAs: "app"
     }
   )
-  .when("/cookies",{
+  .when("/cookies/:cookieType",{
     redirectTo: function(routeParams, path, search){ // A method to redirect from a specific page
       console.log(routeParams); // Can print info to the console for debugging
       console.log(path);
       console.log(search);
-      return "/"; // Uses a function that returns the redirect path
+      return "/" + routeParams.cookieType; // Uses a function that returns the redirect path
     }
   })
+  .when('/sugar', {
+      template: 'Sugar cookie'
+    }
+  )
   .otherwise({ // No route passed because it's a catchall for bad routes
     redirectTo: "/" // One redirect method is to use otherwise to catch all
   });
