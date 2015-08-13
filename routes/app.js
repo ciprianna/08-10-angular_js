@@ -1,4 +1,4 @@
-var app = angular.module("myApp", []);
+var app = angular.module("myApp", ['ngRoute']); // Dependent on ngRoute
 
 app.config(function($routeProvider){
   $routeProvider.when("/",
@@ -8,4 +8,9 @@ app.config(function($routeProvider){
       controllerAs: "app"
     }
   );
+});
+
+app.controller("AppCtrl", function(){
+  var self = this;
+  self.message = "The app route is working!";
 });
