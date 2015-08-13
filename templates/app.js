@@ -20,6 +20,7 @@
   })
   .controller('TestCtrl', TestCtrl);
 
+// Preferred way for prod; injects the template in a cache during a run function
 angular.module('app').run(function ($templateCache){
   $templateCache.put('test.html', 'Hello {{ test.user.name }}!');
 });
