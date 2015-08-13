@@ -8,19 +8,30 @@ app.config(function($routeProvider){
       controller: "AppCtrl",
       controllerAs: "app",
       resolve: {
-        app: function($q, $timeout){
-          var defer = $q.defer;
-          $timeout(function(){
-            defer.resolve;
-          }, 2000);
-          return defer.promise;
-        }
+        loadData: appCtrl.loadData,
+        prepData: appCtrl.prepData
       }
     }
   )
 });
 
-app.controller("AppCtrl", function(){
+var appCtrl = app.controller("AppCtrl", function(){
   var self = this;
   self.message = "I'm a great app!";
 });
+
+appCtrl.loadData = function($q, $timeout){
+  var defer = $q.defer;
+  $timeout(function(){
+    defer.resolve;
+  }, 2000);
+  return defer.promise;
+}
+
+appCtrl.prepData = function($q, $timeout){
+  var defer = $q.defer;
+  $timeout(function(){
+    defer.resolve;
+  }, 2000);
+  return defer.promise;
+}
