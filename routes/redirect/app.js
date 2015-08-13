@@ -10,7 +10,10 @@ app.config(function($routeProvider){
     }
   )
   .when("/cookies",{
-    redirectTo: function(){ // A method to redirect from a specific page
+    redirectTo: function(routeParams, path, search){ // A method to redirect from a specific page
+      console.log(routeParams); // Can print info to the console for debugging
+      console.log(path);
+      console.log(search);
       return "/"; // Uses a function that returns the redirect path
     }
   })
