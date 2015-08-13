@@ -3,11 +3,11 @@ function TestCtrl() {
 
   // initialize an array
   // buttons in html add/rm items in this array
-self.people = [
-  { name: "Eric Simons" },
-  { name: "Albert Pai" },
-  { name: "Matthew Greenster" }
-];
+  self.people = [
+    { name: "Eric Simons" },
+    { name: "Albert Pai" },
+    { name: "Matthew Greenster" }
+  ];
 
   // self.showBoxOne = false;
   // self.showBoxTwo = false;
@@ -15,5 +15,5 @@ self.people = [
 
 }
 
-angular.module('app', ['ngAnimate'])
+angular.module('app', ['ngAnimate']) // requires angular-animate
 .controller('TestCtrl', TestCtrl)

@@ -7,6 +7,16 @@
     <link href="global.css" rel="stylesheet">
 	</head>
 	<body ng-app="app" ng-controller="TestCtrl as test">
+    <button ng-click="test.bigger = !test.bigger">
+      Set bigger = {{ !test.bigger }}
+    </button>
+    <button ng-click="test.lightTheme = !test.lightTheme">
+      Set lightTheme = {{ !test.lightTheme }}
+    </button>
+
+    <div class="box" ng-class="{ 'bigger': test.bigger, 'light-theme': test.lightTheme }">
+      This is just a box.
+    </div>
     <button ng-click="test.people.push({name:'Steve Jobs'})">Add item to ng-repeat</button>
     <button ng-click="test.people.pop()">Remove item from ng-repeat</button>
     <div class="item" ng-repeat="person in test.people">
